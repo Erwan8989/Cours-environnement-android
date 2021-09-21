@@ -11,9 +11,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
-  Button b1;
+  Button b1, b2, b3;
   ImageView iv;
-  boolean flag;
   int[] images ={R.drawable.img,R.drawable.img2,};
   int i=0;
 
@@ -22,15 +21,45 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
+    // ***************** Changement de couleur du bouton 1 et avec changement de l'image au clic *****************
+    b1 = (Button) findViewById(R.id.bouton1);
     iv=(ImageView) findViewById(R.id.img1);
-    b1=(Button) findViewById(R.id.button);
-
-    // flag=true;
 
 
     b1.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
+        b1.setBackgroundColor(Color.RED);
+        iv.setImageResource(images[i]);
+        i++;
+        if(i==2)
+          i=0;
+      }
+    });
+
+    // ***************** Changement de couleur du bouton 2 et avec changement de l'image au clic *****************
+    b2 = (Button) findViewById(R.id.bouton2);
+    iv=(ImageView) findViewById(R.id.img1);
+
+    b2.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        b2.setBackgroundColor(Color.BLUE);;
+        iv.setImageResource(images[i]);
+        i++;
+        if(i==2)
+          i=0;
+      }
+    });
+
+    // ***************** Changement de couleur du bouton 3 et avec changement de l'image au clic *****************
+    b3 = (Button) findViewById(R.id.bouton3);
+    iv=(ImageView) findViewById(R.id.img1);
+
+    b3.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        b3.setBackgroundColor(Color.YELLOW);;
         iv.setImageResource(images[i]);
         i++;
         if(i==2)
@@ -38,26 +67,6 @@ public class MainActivity extends AppCompatActivity {
       }
     });
   }
-
-  public void over(View view) {
-    // Change color of button 1
-    Button thisButton1 = (Button) findViewById(R.id.bouton1);
-    thisButton1.setBackgroundColor(Color.RED);
-
-    // Change color of button 2
-    Button thisButton2 = (Button) findViewById(R.id.bouton2);
-    thisButton2.setBackgroundColor(Color.BLUE);
-
-    // Change color of button 3
-    Button thisButton3 = (Button) findViewById(R.id.bouton3);
-    thisButton3.setBackgroundColor(Color.YELLOW);
-  }
-
-
-
-
-
-
 
 }
 
