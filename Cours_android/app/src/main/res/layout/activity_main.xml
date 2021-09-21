@@ -23,5 +23,49 @@
 
     </LinearLayout>
 
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_marginTop="250dp">
+
+
+
+    <Button
+      android:layout_width="200dp"
+      android:layout_height="60dp"
+      android:text="Change style"
+      android:backgroundTint="@color/teal_700"
+      android:textColor="@android:color/black"
+      android:layout_marginStart="0dp"
+      android:layout_marginEnd="0dp"
+      />
+
+    <Button
+      android:layout_width="200dp"
+      android:layout_height="60dp"
+      android:text="Replay Sound"
+      android:backgroundTint="@color/teal_700"
+      android:textColor="@android:color/black"
+      android:layout_marginStart="0dp"
+      android:layout_marginEnd="0dp"
+      />
+
+    <Button
+      android:layout_width="200dp"
+      android:layout_height="60dp"
+      android:text="Next page"
+      android:backgroundTint="@color/teal_700"
+      android:textColor="@android:color/black"
+      android:layout_marginStart="0dp"
+      android:layout_marginEnd="0dp"
+      />
+
+
+  </LinearLayout>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
