@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +28,13 @@ public class MainActivity extends AppCompatActivity {
     // Change color of button 3
     Button thisButton3 = (Button) findViewById(R.id.bouton3);
     thisButton3.setBackgroundColor(Color.YELLOW);
+
+    Button thisimage1 = (Image) findViewById(R.id.img2);
+    thisButton1.setBackgroundColor(Color.RED);
+  }
+  public void onClick(View v) {
+    button.setBackgroundResource(R.drawable.ic_launcher);
+
   }
 }
 
