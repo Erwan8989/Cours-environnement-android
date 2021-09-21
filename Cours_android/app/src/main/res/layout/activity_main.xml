@@ -8,37 +8,44 @@
 
     <ImageView
         android:id="@+id/FirstImage"
-        android:layout_centerHorizontal="true"
         android:layout_width="250dp"
         android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/cat"
+        tools:ignore="ContentDescription,MissingConstraints"
         tools:layout_editor_absoluteX="90dp"
-        tools:layout_editor_absoluteY="90dp"
-        app:srcCompat="@drawable/cat" />
+        tools:layout_editor_absoluteY="90dp" />
 
-    <Button android:id="@+id/mybutton1"
+    <Button
+        android:id="@+id/mybutton1"
 
         android:layout_width="150dp"
         android:layout_height="50dp"
+        android:onClick="buttonClick1"
         android:text="Change style"
-        android:onClick="buttonClick1"
+        tools:ignore="HardcodedText,MissingConstraints"
         tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="350dp"/>
+        tools:layout_editor_absoluteY="350dp" />
 
-    <Button android:id="@+id/mybutton2"
+    <Button
+        android:id="@+id/mybutton2"
         android:layout_width="150dp"
         android:layout_height="50dp"
+        android:onClick="buttonClick1"
         android:text="Replay sound"
-        android:onClick="buttonClick1"
+        tools:ignore="HardcodedText,MissingConstraints"
         tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="450dp"/>
+        tools:layout_editor_absoluteY="450dp" />
 
-    <Button android:id="@+id/mybutton3"
+    <Button
+        android:id="@+id/mybutton3"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:text="next page"
         android:onClick="buttonClick1"
+        android:text="next page"
+        tools:ignore="HardcodedText,MissingConstraints"
         tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="550dp"/>
+        tools:layout_editor_absoluteY="550dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
