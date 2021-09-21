@@ -33,6 +33,7 @@
 
 
     <Button
+      android:id="@+id/bouton1"
       android:layout_width="200dp"
       android:layout_height="60dp"
       android:text="Change style"
@@ -40,9 +41,11 @@
       android:textColor="@android:color/black"
       android:layout_marginStart="0dp"
       android:layout_marginEnd="0dp"
+      android:onClick="over"
       />
 
     <Button
+      android:id="@+id/bouton2"
       android:layout_width="200dp"
       android:layout_height="60dp"
       android:text="Replay Sound"
@@ -50,9 +53,11 @@
       android:textColor="@android:color/black"
       android:layout_marginStart="0dp"
       android:layout_marginEnd="0dp"
+      android:onClick="over"
       />
 
     <Button
+      android:id="@+id/bouton3"
       android:layout_width="200dp"
       android:layout_height="60dp"
       android:text="Next page"
@@ -60,6 +65,7 @@
       android:textColor="@android:color/black"
       android:layout_marginStart="0dp"
       android:layout_marginEnd="0dp"
+      android:onClick="over"
       />
 
 
