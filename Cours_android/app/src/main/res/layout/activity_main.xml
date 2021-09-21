@@ -6,16 +6,17 @@
     android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
-
     <ImageView
         android:id="@+id/FirstImage"
+        android:layout_centerHorizontal="true"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        app:srcCompat="@drawable/cat"
         tools:layout_editor_absoluteX="90dp"
-        tools:layout_editor_absoluteY="90dp" />
+        tools:layout_editor_absoluteY="90dp"
+        app:srcCompat="@drawable/cat" />
 
     <Button android:id="@+id/mybutton1"
+
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:text="Change style"

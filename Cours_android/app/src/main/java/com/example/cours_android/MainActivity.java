@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity {
 
+public class MainActivity extends AppCompatActivity {
 
     // Création d'un tag pour le login
     private static final String TAG;
@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     static {
         TAG = "MainActivity";
     }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,5 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    
+    }
 
-}
