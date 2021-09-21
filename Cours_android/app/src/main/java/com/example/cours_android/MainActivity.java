@@ -3,6 +3,7 @@ package com.example.cours_android;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
     Button thisButton3 = (Button) findViewById(R.id.bouton3);
     thisButton3.setBackgroundColor(Color.YELLOW);
 
-    Button thisimage1 = (Image) findViewById(R.id.img2);
-    thisButton1.setBackgroundColor(Color.RED);
+    Button thisImage1 = (Image) findViewById(R.id.img2);
+    thisImage1.setBackgroundColor(Color.RED);
   }
   public void onClick(View v) {
     button.setBackgroundResource(R.drawable.ic_launcher);
