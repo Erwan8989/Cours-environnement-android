@@ -83,7 +83,7 @@
       android:id="@+id/bouton7"
       android:layout_width="200dp"
       android:layout_height="60dp"
-      android:text="Next page"
+      android:text="Previous page"
       android:backgroundTint="@color/teal_700"
       android:textColor="@android:color/black"
       android:layout_marginStart="0dp"
