@@ -2,6 +2,7 @@ package com.example.cours_android;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
@@ -64,8 +65,16 @@ public class MainActivity extends AppCompatActivity {
         i++;
         if(i==2)
           i=0;
+
+        // Appel à la fonction openActivity pour changer de page
+        openActivity2();
       }
     });
+  }
+
+  public void openActivity2(){
+    Intent intent = new Intent(this, Activity2.class);
+    startActivity(intent);
   }
 
 }
