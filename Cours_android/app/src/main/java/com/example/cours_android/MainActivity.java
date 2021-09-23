@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.Image;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
+    // Son ambiant qui se lance au démmarage de l'application
+    MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.son1);
+    mediaPlayer.start();
+
     // ***************** Changement de couleur du bouton 1 et avec changement de l'image au clic *****************
     b1 = (Button) findViewById(R.id.bouton1);
     iv=(ImageView) findViewById(R.id.img1);
@@ -38,18 +43,26 @@ public class MainActivity extends AppCompatActivity {
       }
     });
 
-    // ***************** Changement de couleur du bouton 2 et avec changement de l'image au clic *****************
+    // ***************** Changement de couleur du bouton 2 et avec changement de l'image au clic, et rejouer le son ambiant *****************
     b2 = (Button) findViewById(R.id.bouton2);
     iv=(ImageView) findViewById(R.id.img1);
 
     b2.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
+
+        // Changement de couleur du bouton et de l'image
         b2.setBackgroundColor(Color.BLUE);;
         iv.setImageResource(images[i]);
         i++;
         if(i==2)
           i=0;
+
+        //Rejouer au début le son ambiant
+        MediaPlayer mp = MediaPlayer.create(MainActivity.this, R.raw.son1);
+        mp.stop();
+        mp = MediaPlayer.create(MainActivity.this, R.raw.son1);
+        mp.start();
       }
     });
 
