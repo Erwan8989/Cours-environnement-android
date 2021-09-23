@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.Image;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
   ImageView iv;
   int[] images ={R.drawable.img,R.drawable.img2,};
   int i=0;
-  boolean isPlaying;
+  MediaPlayer mp;
 
 
   @Override
@@ -31,17 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
     // Son ambiant qui se lance au démmarage de l'application
 
-    //music(isPlaying);
-
-    if (isPlaying == false){
-      MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.son1);
-      mediaPlayer = MediaPlayer.create(this, R.raw.son1);
-      mediaPlayer.start();
-      isPlaying = true;
-    }
-    else{
-      isPlaying = true;
-
+    mp = MediaPlayer.create(this, R.raw.son1);
+    mp.start();
 
     // ***************** Changement de couleur du bouton 1, 2 et 3 et avec changement de l'image au clic *****************
     b1.setOnClickListener(new View.OnClickListener() {
@@ -69,21 +61,11 @@ public class MainActivity extends AppCompatActivity {
       public void onClick(View v) {
 
         //Rejouer au début le son ambiant
-        //music();
-        if (isPlaying == false){
-          mediaPlayer.start();
-          isPlaying = true;
-        }
-        else{
-          mediaPlayer.stop();
-          mediaPlayer = MediaPlayer.create(this, R.raw.son1);
-          mediaPlayer.start();
-        }
-        b2.setBackgroundColor(Color.BLUE);;
-        iv.setImageResource(images[i]);
-        i++;
-        if(i==2)
-          i=0;
+
+        mp.stop();
+        mp = MediaPlayer.create(MainActivity.this, R.raw.son1);
+        mp.start();
+
       }
     });
 
@@ -92,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
     b3.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
+
+        // Stop la bande son en cours, afin d'éviter que plusieurs soit lancé en même temps lors du retour sur cette activité
+        mp.stop();
 
         // Appel à la fonction openActivity pour changer de page (activity)
         openActivity2();
