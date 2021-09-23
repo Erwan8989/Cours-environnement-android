@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
   ImageView iv;
   int[] images ={R.drawable.img,R.drawable.img2,};
   int i=0;
+  boolean isPlaying;
 
 
   @Override
@@ -31,7 +32,17 @@ public class MainActivity extends AppCompatActivity {
 
     // Son ambiant qui se lance au démmarage de l'application
 
-    music();
+    //music(isPlaying);
+
+    if (isPlaying == false){
+      MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.son1);
+      mediaPlayer = MediaPlayer.create(this, R.raw.son1);
+      mediaPlayer.start();
+      isPlaying = true;
+    }
+    else{
+      isPlaying = true;
+
 
     // ***************** Changement de couleur du bouton 1, 2 et 3 et avec changement de l'image au clic *****************
     b1.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +69,16 @@ public class MainActivity extends AppCompatActivity {
       public void onClick(View v) {
 
         //Rejouer au début le son ambiant
-        music();
+        //music();
+        if (isPlaying == false){
+          mediaPlayer.start();
+          isPlaying = true;
+        }
+        else{
+          mediaPlayer.stop();
+          mediaPlayer = MediaPlayer.create(this, R.raw.son1);
+          mediaPlayer.start();
+        }
 
 
 
@@ -82,16 +102,19 @@ public class MainActivity extends AppCompatActivity {
     startActivity(intent);
   }
 
-  public void music() {
+  /*public void music(boolean isPlaying) {
+
     MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.son1);
-    if (mediaPlayer.isPlaying()) {
+    if (isPlaying == false) {
+      mediaPlayer = MediaPlayer.create(this, R.raw.son1);
+      mediaPlayer.start();
+      isPlaying == true;
+      return isPlaying;
+    } else {
       mediaPlayer.stop();
       mediaPlayer = MediaPlayer.create(this, R.raw.son1);
       mediaPlayer.start();
-    } else {
-      mediaPlayer = MediaPlayer.create(this, R.raw.son1);
-      mediaPlayer.start();
     }
-  }
+  }*/
 }
 
