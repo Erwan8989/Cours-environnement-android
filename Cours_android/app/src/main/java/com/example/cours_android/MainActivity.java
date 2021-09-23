@@ -25,7 +25,10 @@ public class MainActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 6025162 (Son ambiant démarrage et replay sound terminé)
     // ***************** Changement de couleur du bouton 1 et avec changement de l'image au clic *****************
 >>>>>>> parent of 6025162 (Son ambiant démarrage et replay sound terminé)
     b1 = (Button) findViewById(R.id.bouton1);
@@ -66,8 +69,11 @@ public class MainActivity extends AppCompatActivity {
     });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     // ***************** Rejouer le son ambiant au clic *****************
 =======
+=======
+>>>>>>> parent of 6025162 (Son ambiant démarrage et replay sound terminé)
     // ***************** Changement de couleur du bouton 2 et avec changement de l'image au clic *****************
     b2 = (Button) findViewById(R.id.bouton2);
     iv=(ImageView) findViewById(R.id.img1);
@@ -76,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
     b2.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 
         //Rejouer au début le son ambiant
@@ -93,11 +100,16 @@ public class MainActivity extends AppCompatActivity {
 
 
 =======
+=======
+>>>>>>> parent of 6025162 (Son ambiant démarrage et replay sound terminé)
         b2.setBackgroundColor(Color.BLUE);;
         iv.setImageResource(images[i]);
         i++;
         if(i==2)
           i=0;
+<<<<<<< HEAD
+>>>>>>> parent of 6025162 (Son ambiant démarrage et replay sound terminé)
+=======
 >>>>>>> parent of 6025162 (Son ambiant démarrage et replay sound terminé)
       }
     });
