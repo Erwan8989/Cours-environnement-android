@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.Image;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
+<<<<<<< HEAD
+=======
+    // ***************** Changement de couleur du bouton 1 et avec changement de l'image au clic *****************
+>>>>>>> parent of 6025162 (Son ambiant démarrage et replay sound terminé)
     b1 = (Button) findViewById(R.id.bouton1);
     b2 = (Button) findViewById(R.id.bouton2);
     b3 = (Button) findViewById(R.id.bouton3);
@@ -62,11 +65,18 @@ public class MainActivity extends AppCompatActivity {
       }
     });
 
+<<<<<<< HEAD
     // ***************** Rejouer le son ambiant au clic *****************
+=======
+    // ***************** Changement de couleur du bouton 2 et avec changement de l'image au clic *****************
+    b2 = (Button) findViewById(R.id.bouton2);
+    iv=(ImageView) findViewById(R.id.img1);
+>>>>>>> parent of 6025162 (Son ambiant démarrage et replay sound terminé)
 
     b2.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
+<<<<<<< HEAD
 
         //Rejouer au début le son ambiant
         //music();
@@ -82,6 +92,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+=======
+        b2.setBackgroundColor(Color.BLUE);;
+        iv.setImageResource(images[i]);
+        i++;
+        if(i==2)
+          i=0;
+>>>>>>> parent of 6025162 (Son ambiant démarrage et replay sound terminé)
       }
     });
 
