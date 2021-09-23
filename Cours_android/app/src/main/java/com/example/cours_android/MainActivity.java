@@ -15,7 +15,7 @@ import android.widget.ImageView;
 public class MainActivity extends AppCompatActivity {
     Button b1, b2, b3;
     ImageView iv;
-    int[] images ={R.drawable.img,R.drawable.img2,};
+    int[] images ={R.drawable.loup,R.drawable.nike,};
     int i=0;
 
 
@@ -24,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        b1 = (Button) findViewById(R.id.bouton1);
-        b2 = (Button) findViewById(R.id.bouton2);
-        b3 = (Button) findViewById(R.id.bouton3);
-        iv=(ImageView) findViewById(R.id.img1);
+        b1 = (Button) findViewById(R.id.mybutton1);
+        b2 = (Button) findViewById(R.id.mybutton2);
+        b3 = (Button) findViewById(R.id.mybutton3);
+        iv=(ImageView) findViewById(R.id.FirstImage);
 
         // Son ambiant qui se lance au démmarage de l'application
 
@@ -83,13 +83,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void music() {
-        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.Mer);
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.sh);
         if (mediaPlayer.isPlaying()) {
             mediaPlayer.stop();
-            mediaPlayer = MediaPlayer.create(this, R.raw.Mer);
+            mediaPlayer = MediaPlayer.create(this, R.raw.sh);
             mediaPlayer.start();
         } else {
-            mediaPlayer = MediaPlayer.create(this, R.raw.Mer);
+            mediaPlayer = MediaPlayer.create(this, R.raw.sh);
             mediaPlayer.start();
         }
     }
