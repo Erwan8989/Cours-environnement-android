@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Cours_android</string>
+    <string name="replay_sound">Replay Sound</string>
 </resources>
