@@ -18,24 +18,32 @@ public class MainActivity extends AppCompatActivity {
   int[] images ={R.drawable.img,R.drawable.img2,};
   int i=0;
 
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    // Son ambiant qui se lance au démmarage de l'application
-    MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.son1);
-    mediaPlayer.start();
-
-    // ***************** Changement de couleur du bouton 1 et avec changement de l'image au clic *****************
     b1 = (Button) findViewById(R.id.bouton1);
+    b2 = (Button) findViewById(R.id.bouton2);
+    b3 = (Button) findViewById(R.id.bouton3);
     iv=(ImageView) findViewById(R.id.img1);
 
+    // Son ambiant qui se lance au démmarage de l'application
 
+    music();
+
+    // ***************** Changement de couleur du bouton 1, 2 et 3 et avec changement de l'image au clic *****************
     b1.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
+
+        //Changement de couleur des boutons
         b1.setBackgroundColor(Color.RED);
+        b2.setBackgroundColor(Color.BLUE);
+        b3.setBackgroundColor(Color.YELLOW);
+
+        //Changement de l'image
         iv.setImageResource(images[i]);
         i++;
         if(i==2)
@@ -43,43 +51,27 @@ public class MainActivity extends AppCompatActivity {
       }
     });
 
-    // ***************** Changement de couleur du bouton 2 et avec changement de l'image au clic, et rejouer le son ambiant *****************
-    b2 = (Button) findViewById(R.id.bouton2);
-    iv=(ImageView) findViewById(R.id.img1);
+    // ***************** Rejouer le son ambiant au clic *****************
 
     b2.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
 
-        // Changement de couleur du bouton et de l'image
-        b2.setBackgroundColor(Color.BLUE);;
-        iv.setImageResource(images[i]);
-        i++;
-        if(i==2)
-          i=0;
-
         //Rejouer au début le son ambiant
-        MediaPlayer mp = MediaPlayer.create(MainActivity.this, R.raw.son1);
-        mp.stop();
-        mp = MediaPlayer.create(MainActivity.this, R.raw.son1);
-        mp.start();
+        music();
+
+
+
       }
     });
 
-    // ***************** Changement de couleur du bouton 3 et avec changement de l'image au clic *****************
-    b3 = (Button) findViewById(R.id.bouton3);
-    iv=(ImageView) findViewById(R.id.img1);
+    // ***************** Changement de page au clic *****************
 
     b3.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        b3.setBackgroundColor(Color.YELLOW);;
-        iv.setImageResource(images[i]);
-        i++;
-        if(i==2)
-          i=0;
 
-        // Appel à la fonction openActivity pour changer de page
+        // Appel à la fonction openActivity pour changer de page (activity)
         openActivity2();
       }
     });
@@ -90,5 +82,16 @@ public class MainActivity extends AppCompatActivity {
     startActivity(intent);
   }
 
+  public void music() {
+    MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.son1);
+    if (mediaPlayer.isPlaying()) {
+      mediaPlayer.stop();
+      mediaPlayer = MediaPlayer.create(this, R.raw.son1);
+      mediaPlayer.start();
+    } else {
+      mediaPlayer = MediaPlayer.create(this, R.raw.son1);
+      mediaPlayer.start();
+    }
+  }
 }
 
