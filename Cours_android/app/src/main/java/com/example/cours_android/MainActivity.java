@@ -2,14 +2,18 @@ package com.example.cours_android;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
+import android.media.Image;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
+
+/*
 
 public class MainActivity extends AppCompatActivity {
 
@@ -83,4 +87,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+*/
