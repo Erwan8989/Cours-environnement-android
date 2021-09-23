@@ -12,6 +12,91 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+public class MainActivity extends AppCompatActivity {
+    Button b1, b2, b3;
+    ImageView iv;
+    int[] images ={R.drawable.img,R.drawable.img2,};
+    int i=0;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        b1 = (Button) findViewById(R.id.bouton1);
+        b2 = (Button) findViewById(R.id.bouton2);
+        b3 = (Button) findViewById(R.id.bouton3);
+        iv=(ImageView) findViewById(R.id.img1);
+
+        // Son ambiant qui se lance au démmarage de l'application
+
+        music();
+
+        // ***************** Changement de couleur du bouton 1, 2 et 3 et avec changement de l'image au clic *****************
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Changement de couleur des boutons
+                b1.setBackgroundColor(Color.RED);
+                b2.setBackgroundColor(Color.BLUE);
+                b3.setBackgroundColor(Color.YELLOW);
+
+                //Changement de l'image
+                iv.setImageResource(images[i]);
+                i++;
+                if(i==2)
+                    i=0;
+            }
+        });
+
+        // ***************** Rejouer le son ambiant au clic *****************
+
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Rejouer au début le son ambiant
+                music();
+
+
+
+            }
+        });
+
+        // ***************** Changement de page au clic *****************
+
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Appel à la fonction openActivity pour changer de page (activity)
+                openActivity2();
+            }
+        });
+    }
+
+    public void openActivity2(){
+        Intent intent = new Intent(this, NewActivity.class);
+        startActivity(intent);
+    }
+
+    public void music() {
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.Mer);
+        if (mediaPlayer.isPlaying()) {
+            mediaPlayer.stop();
+            mediaPlayer = MediaPlayer.create(this, R.raw.Mer);
+            mediaPlayer.start();
+        } else {
+            mediaPlayer = MediaPlayer.create(this, R.raw.Mer);
+            mediaPlayer.start();
+        }
+    }
+}
+
+
+
 
 /*
 
@@ -80,10 +165,6 @@ public class MainActivity extends AppCompatActivity {
         Button thisButton3 = (Button) view;
         thisButton2.setBackgroundColor(Color.RED);
     }
-
-
-
-
 
     }
 
