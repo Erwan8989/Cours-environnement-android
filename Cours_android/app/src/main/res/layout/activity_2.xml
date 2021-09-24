@@ -19,6 +19,7 @@
     android:layout_height="match_parent">
 
     <EditText
+      android:id="@+id/text"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_marginTop="60dp"
@@ -64,17 +65,18 @@
           android:textColor="@android:color/black"
           android:layout_marginStart="0dp"
           android:layout_marginEnd="10dp"
-          />
+          android:onClick="writeMessage"/>
 
         <Button
           android:id="@+id/bouton6"
           android:layout_width="150dp"
           android:layout_height="60dp"
-          android:text="Next page"
+          android:text="Load"
           android:backgroundTint="@color/teal_700"
           android:textColor="@android:color/black"
           android:layout_marginStart="0dp"
           android:layout_marginEnd="0dp"
+          android:onClick="readMessage"
           />
 
       </LinearLayout>
@@ -89,6 +91,13 @@
       android:layout_marginStart="0dp"
       android:layout_marginEnd="0dp"
       />
+
+      <TextView
+        android:id="@+id/textview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="hello"
+        />
 
 </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
