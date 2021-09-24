@@ -19,6 +19,7 @@
             android:layout_height="match_parent">
 
             <EditText
+                android:id="@+id/TextEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="60dp"
@@ -60,6 +61,7 @@
                 android:layout_width="150dp"
                 android:layout_height="60dp"
                 android:text="Save"
+                android:onClick="Save"
                 android:backgroundTint="@color/teal_700"
                 android:textColor="@android:color/black"
                 android:layout_marginStart="0dp"
@@ -70,7 +72,8 @@
                 android:id="@+id/bouton6"
                 android:layout_width="150dp"
                 android:layout_height="60dp"
-                android:text="Next page"
+                android:text="Load"
+                android:onClick="Load"
                 android:backgroundTint="@color/teal_700"
                 android:textColor="@android:color/black"
                 android:layout_marginStart="0dp"
