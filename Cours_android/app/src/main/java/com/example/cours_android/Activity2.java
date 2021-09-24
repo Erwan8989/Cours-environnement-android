@@ -28,7 +28,7 @@ public class Activity2 extends AppCompatActivity {
   TextView text;
   EditText input;
 
-    EditText mEditText;
+  private static final String FILE_NAME = "hello_file.txt";
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +48,7 @@ public class Activity2 extends AppCompatActivity {
 
 
     // ***************** Revenir à l'activity main *****************
+
     b7 = (Button) findViewById(R.id.bouton7);
 
     b7.setOnClickListener(new View.OnClickListener() {
@@ -59,48 +60,72 @@ public class Activity2 extends AppCompatActivity {
 
   }
 
+  // ***************** Changement de page au clic *****************
 
   public void openActivity1() {
     Intent intent = new Intent(this, MainActivity.class);
     startActivity(intent);
   }
 
-  public void writeMessage(View view){
 
-    String message = input.getText().toString();
-    String file_name = "hello_file";
+  // ***************** Ecrire un message dans zone de texte, et l'enregistrer *****************
+
+  public void writeMessage(View v){
+    String text = input.getText().toString();
+    FileOutputStream fos = null;
     try {
-      FileOutputStream fileOutputStream = openFileOutput(file_name, MODE_PRIVATE);
-      fileOutputStream.write(message.getBytes());
-      fileOutputStream.close();
-      Toast.makeText(getApplicationContext(), "Message sauvegardé", Toast.LENGTH_LONG).show();
-      input.setText("");
+      fos = openFileOutput(FILE_NAME, MODE_PRIVATE);
+      fos.write(text.getBytes());
+      input.getText().clear();
+      //Toast.makeText(this, "Saved to " + getFilesDir() + "/" + FILE_NAME,
+        //Toast.LENGTH_LONG).show();
+      Toast.makeText(this, "Texte enregistré",
+          Toast.LENGTH_LONG).show();
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     } catch (IOException e) {
       e.printStackTrace();
-    }
-
-  }
-
-  public void readMessage(View view){
-    try {
-      String message;
-      FileInputStream fileInputStream = openFileInput("hello_file");
-      InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
-      BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-      StringBuffer stringBuffer = new StringBuffer();
-      while ((message=bufferedReader.readLine())!=null){
-        stringBuffer.append(message +"\n");
+    } finally {
+      if (fos != null) {
+        try {
+          fos.close();
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
       }
-      text.setText(stringBuffer.toString());
-      text.setVisibility(View.VISIBLE);
+    }
 
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
-    } catch (IOException e) {
-      e.printStackTrace();
+  }
+
+
+  // ***************** Lire et afficher le texte enregistré en mémoire *****************
+
+  public void readMessage(View v){
+
+  FileInputStream fis = null;
+        try {
+    fis = openFileInput(FILE_NAME);
+    InputStreamReader isr = new InputStreamReader(fis);
+    BufferedReader br = new BufferedReader(isr);
+    StringBuilder sb = new StringBuilder();
+    String text;
+    while ((text = br.readLine()) != null) {
+      sb.append(text).append("\n");
+    }
+    input.setText(sb.toString());
+  } catch (FileNotFoundException e) {
+    e.printStackTrace();
+  } catch (IOException e) {
+    e.printStackTrace();
+  } finally {
+    if (fis != null) {
+      try {
+        fis.close();
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
     }
   }
+}
 }
 

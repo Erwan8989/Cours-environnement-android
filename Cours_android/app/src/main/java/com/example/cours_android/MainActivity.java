@@ -30,12 +30,13 @@ public class MainActivity extends AppCompatActivity {
     b3 = (Button) findViewById(R.id.bouton3);
     iv=(ImageView) findViewById(R.id.img1);
 
-    // Son ambiant qui se lance au démmarage de l'application
+    // ***************** Son ambiant qui se lance au démmarage de l'application *****************
 
     mp = MediaPlayer.create(this, R.raw.son1);
     mp.start();
 
     // ***************** Changement de couleur du bouton 1, 2 et 3 et avec changement de l'image au clic *****************
+
     b1.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
       }
     });
     // ***************** Rejouer le son ambiant au clic *****************
+
     b2 = (Button) findViewById(R.id.bouton2);
     iv=(ImageView) findViewById(R.id.img1);
 
@@ -88,20 +90,5 @@ public class MainActivity extends AppCompatActivity {
     Intent intent = new Intent(this, Activity2.class);
     startActivity(intent);
   }
-
-  /*public void music(boolean isPlaying) {
-
-    MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.son1);
-    if (isPlaying == false) {
-      mediaPlayer = MediaPlayer.create(this, R.raw.son1);
-      mediaPlayer.start();
-      isPlaying == true;
-      return isPlaying;
-    } else {
-      mediaPlayer.stop();
-      mediaPlayer = MediaPlayer.create(this, R.raw.son1);
-      mediaPlayer.start();
-    }
-  }*/
 }
 
