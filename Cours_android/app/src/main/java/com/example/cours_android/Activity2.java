@@ -47,13 +47,6 @@ public class Activity2 extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
     // ***************** Revenir à l'activity main *****************
     b7 = (Button) findViewById(R.id.bouton7);
 
