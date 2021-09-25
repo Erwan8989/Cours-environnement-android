@@ -14,6 +14,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -21,6 +32,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 public class Activity2 extends AppCompatActivity {
 
@@ -30,6 +42,7 @@ public class Activity2 extends AppCompatActivity {
 
   private static final String FILE_NAME = "hello_file.txt";
 
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -37,7 +50,7 @@ public class Activity2 extends AppCompatActivity {
 
 
 
-    // ***************** Sauvegarder en mémoire ce qui a été écrit *****************
+
 
     b5 = (Button) findViewById(R.id.bouton5);
     input = findViewById(R.id.text);
@@ -60,6 +73,13 @@ public class Activity2 extends AppCompatActivity {
 
   }
 
+
+  // ***************** Appel depuis API *****************
+
+    public void api() {
+      Intent intent = new Intent(this, MainActivity.class);
+      startActivity(intent);
+    }
   // ***************** Changement de page au clic *****************
 
   public void openActivity1() {
