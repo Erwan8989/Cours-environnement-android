@@ -6,35 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".NewActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+
 
 
         <ScrollView
             android:id="@+id/ScrollView01"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
 
             <EditText
                 android:id="@+id/TextEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="100dp"
                 android:inputType="textMultiLine"
-                android:lines="8"
-                android:maxLines="10"
-                android:minLines="6"
-                android:scrollbars="vertical" />
+                android:lines="5"
+                android:maxLines="2"
+                android:minLines="1"
+                android:scrollbars="vertical"
+                />
 
         </ScrollView>
-    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:orientation ="vertical"
         android:layout_marginTop="250dp"
         android:gravity="center_horizontal">
 

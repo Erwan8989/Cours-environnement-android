@@ -19,14 +19,18 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
 
+
 public class NewActivity extends AppCompatActivity {
+
+    Button b4, b5, b6, b7;
+
 
     // Définition du nom de fichier du texte
 
     private static final String FILE_NAME ="example.txt";
     EditText TextEdit;
 
-    Button b4, b5, b6, b7;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +41,7 @@ public class NewActivity extends AppCompatActivity {
 
         // Définition des méthodes Saves & Load
 
-    public void save(View v) {
+    public void Save(View v) {
         String text = TextEdit.getText().toString();
         FileOutputStream fos = null;
 
@@ -63,7 +67,7 @@ public class NewActivity extends AppCompatActivity {
         }
     }
 
-    public void load(View v) {
+    public void Load(View v) {
         FileInputStream fis = null;
 
         try {
@@ -95,28 +99,20 @@ public class NewActivity extends AppCompatActivity {
     }
 
 
-
-
-
-
         // ***************** Revenir à l'activity main *****************
-
-        b7 = (Button) findViewById(R.id.bouton7);
-        b7.setOnClickListener(new View.OnClickListener() {
-            @Override
+/*      @Override
             public void onClick(View v) {
-                openActivity1();
-            }
-        });
+    b7 = (Button) findViewById(R.id.bouton7);
 
-    }
+    b7.setOnClickListener(new View.OnClickListener()
 
-    public void openActivity1() {
+    {
+
+        // ***************** Changement de page au clic *****************
+
+        public void openActivity1 () {
         Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        startActivity(intent); */
     }
-
-}
-
 
 
