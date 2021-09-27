@@ -106,7 +106,7 @@ public class Activity2 extends AppCompatActivity {
       @Override
       public void onErrorResponse(VolleyError error) {
         textview.setText("That didn't work!");
-        Log.e(this.getClass().toString(), "Erreur successful!");
+        Log.e(this.getClass().toString(), "Erreur!");
       }
     });
 
