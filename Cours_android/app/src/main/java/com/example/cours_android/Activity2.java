@@ -79,26 +79,6 @@ public class Activity2 extends AppCompatActivity {
         openActivity1();
       }
     });
-/*
-
-    // Set background color of the text field in Green
-
-    // final RelativeLayout relativeLayout;
-
-    // set button 1 with its id
-    b5 = findViewById(R.id.bouton5);
-    // set relative layout with its id
-    View relativeLayout = findViewById(R.id.text);
-    // onClick function for button 1
-    b5.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        // set the color to relative layout
-        relativeLayout.setBackgroundResource(R.color.cool);
-      }
-    });
-    */
-
   }
 
   public void httpCall(String url) {
@@ -138,6 +118,8 @@ public class Activity2 extends AppCompatActivity {
     String text = input.getText().toString();
     FileOutputStream fos = null;
     try {
+      View relativeLayout = findViewById(R.id.text);
+      relativeLayout.setBackgroundResource(R.color.cool);
       fos = openFileOutput(FILE_NAME, MODE_PRIVATE);
       fos.write(text.getBytes());
       input.getText().clear();
