@@ -120,6 +120,9 @@ public class Activity2 extends AppCompatActivity {
     try {
       View relativeLayout = findViewById(R.id.text);
       relativeLayout.setBackgroundResource(R.color.cool);
+      b5 = (Button) findViewById(R.id.bouton5);
+      b5.setBackgroundColor(Color.GREEN);
+
       fos = openFileOutput(FILE_NAME, MODE_PRIVATE);
       fos.write(text.getBytes());
       input.getText().clear();
