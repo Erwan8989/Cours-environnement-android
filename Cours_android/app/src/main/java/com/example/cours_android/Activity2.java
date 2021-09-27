@@ -79,7 +79,7 @@ public class Activity2 extends AppCompatActivity {
         openActivity1();
       }
     });
-
+/*
 
     // Set background color of the text field in Green
 
@@ -97,6 +97,7 @@ public class Activity2 extends AppCompatActivity {
         relativeLayout.setBackgroundResource(R.color.cool);
       }
     });
+    */
 
   }
 
