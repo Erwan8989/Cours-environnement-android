@@ -98,7 +98,7 @@ public class Activity2 extends AppCompatActivity {
       new Response.Listener<String>() {
         @Override
         public void onResponse(String response) {
-          textview.setText("Response is: ");
+          textview.setText("Response is: "+ response.substring(0,500));
           Log.e(this.getClass().toString(), "Request successful!");
         }
       }, new Response.ErrorListener() {
