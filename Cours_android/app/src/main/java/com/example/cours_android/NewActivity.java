@@ -49,14 +49,18 @@ public class NewActivity extends AppCompatActivity {
                 openMainActivity();
             }
         });
+
         // Input du text //
         TextEdit = findViewById(R.id.TextEdit);
-            final RelativeLayout relativeLayout;
+
+        // Set background color of the text field in Green
+
+           // final RelativeLayout relativeLayout;
 
             // set button 1 with its id
             b5 = findViewById(R.id.bouton5);
             // set relative layout with its id
-            relativeLayout = findViewById(R.id.bouton5);
+        View relativeLayout = findViewById(R.id.TextEdit);
             // onClick function for button 1
             b5.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -65,10 +69,8 @@ public class NewActivity extends AppCompatActivity {
                     relativeLayout.setBackgroundResource(R.color.cool);
                 }
             });
-        }
-
-
-
+         }
+         
         // Définition des méthodes Saves & Load
 
     public void Save(View v) {
