@@ -15,7 +15,7 @@ import android.widget.ImageView;
 public class MainActivity extends AppCompatActivity {
   Button b1, b2, b3;
   ImageView iv;
-  int[] images ={R.drawable.img,R.drawable.img2,};
+  int[] images ={R.drawable.img,R.drawable.img2};
   int i=0;
   MediaPlayer mp;
 
