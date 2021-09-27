@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -74,7 +75,6 @@ public class Activity2 extends AppCompatActivity {
         openActivity1();
       }
     });
-// ...
 
 
 
@@ -89,9 +89,6 @@ public class Activity2 extends AppCompatActivity {
       }
     });
 
-
-
-
   }
 
   public void httpCall(String url) {
@@ -103,11 +100,13 @@ public class Activity2 extends AppCompatActivity {
         @Override
         public void onResponse(String response) {
           textview.setText("Response is: ");
+          Log.e(this.getClass().toString(), "Request successful!");
         }
       }, new Response.ErrorListener() {
       @Override
       public void onErrorResponse(VolleyError error) {
         textview.setText("That didn't work!");
+        Log.e(this.getClass().toString(), "Erreur successful!");
       }
     });
 
