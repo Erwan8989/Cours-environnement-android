@@ -61,7 +61,6 @@ public class Activity2 extends AppCompatActivity {
     input = findViewById(R.id.text);
     b6 = findViewById(R.id.bouton6);
     textview = (TextView)findViewById(R.id.textview);
-    textview.setVisibility(View.GONE);
 
 
 
