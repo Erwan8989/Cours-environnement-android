@@ -19,6 +19,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -37,11 +38,14 @@ import java.util.ArrayList;
 public class Activity2 extends AppCompatActivity {
 
   Button b4, b5, b6, b7;
-  TextView text;
+  TextView textview;
   EditText input;
 
   private static final String FILE_NAME = "hello_file.txt";
 
+  // Instantiate the RequestQueue.
+  //RequestQueue queue = Volley.newRequestQueue(this);
+  String url ="https://api.github.com/zen";
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +59,8 @@ public class Activity2 extends AppCompatActivity {
     b5 = (Button) findViewById(R.id.bouton5);
     input = findViewById(R.id.text);
     b6 = findViewById(R.id.bouton6);
-    text = (TextView)findViewById(R.id.textview);
-    text.setVisibility(View.GONE);
+    textview = (TextView)findViewById(R.id.textview);
+    textview.setVisibility(View.GONE);
 
 
 
@@ -70,16 +74,47 @@ public class Activity2 extends AppCompatActivity {
         openActivity1();
       }
     });
+// ...
+
+
+
+
+
+    b4 = (Button) findViewById(R.id.bouton4);
+
+    b4.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        httpCall("https://api.github.com/zen");
+      }
+    });
+
+
+
 
   }
 
+  public void httpCall(String url) {
 
-  // ***************** Appel depuis API *****************
+    RequestQueue queue = Volley.newRequestQueue(this);
 
-    public void api() {
-      Intent intent = new Intent(this, MainActivity.class);
-      startActivity(intent);
-    }
+    StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+      new Response.Listener<String>() {
+        @Override
+        public void onResponse(String response) {
+          textview.setText("Response is: ");
+        }
+      }, new Response.ErrorListener() {
+      @Override
+      public void onErrorResponse(VolleyError error) {
+        textview.setText("That didn't work!");
+      }
+    });
+
+    queue.add(stringRequest);
+
+  }
+
   // ***************** Changement de page au clic *****************
 
   public void openActivity1() {
