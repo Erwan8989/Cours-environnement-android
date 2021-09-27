@@ -49,15 +49,11 @@ public class Activity2 extends AppCompatActivity {
     setContentView(R.layout.activity_2);
 
 
-
-
-
     b5 = (Button) findViewById(R.id.bouton5);
     input = findViewById(R.id.text);
     b6 = findViewById(R.id.bouton6);
-    text = (TextView)findViewById(R.id.textview);
+    text = (TextView) findViewById(R.id.textview);
     text.setVisibility(View.GONE);
-
 
 
     // ***************** Revenir à l'activity main *****************
@@ -71,7 +67,26 @@ public class Activity2 extends AppCompatActivity {
       }
     });
 
+
+    // Set background color of the text field in Green
+
+    // final RelativeLayout relativeLayout;
+
+    // set button 1 with its id
+    b5 = findViewById(R.id.bouton5);
+    // set relative layout with its id
+    View relativeLayout = findViewById(R.id.text);
+    // onClick function for button 1
+    b5.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        // set the color to relative layout
+        relativeLayout.setBackgroundResource(R.color.cool);
+      }
+    });
+
   }
+
 
 
   // ***************** Appel depuis API *****************
