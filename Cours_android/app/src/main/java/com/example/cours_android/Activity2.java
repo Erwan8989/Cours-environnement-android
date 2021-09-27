@@ -53,16 +53,21 @@ public class Activity2 extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_2);
 
-
-
-
-
     b5 = (Button) findViewById(R.id.bouton5);
     input = findViewById(R.id.text);
     b6 = findViewById(R.id.bouton6);
-    textview = (TextView)findViewById(R.id.textview);
+    textview = (TextView)findViewById(R.id.text);
 
+    // ***************** Obtenir l'API, et l'afficher *****************
 
+    b4 = (Button) findViewById(R.id.bouton4);
+
+    b4.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        httpCall("https://api.github.com/zen");
+      }
+    });
 
     // ***************** Revenir à l'activity main *****************
 
@@ -72,19 +77,6 @@ public class Activity2 extends AppCompatActivity {
       @Override
       public void onClick(View v) {
         openActivity1();
-      }
-    });
-
-
-
-
-
-    b4 = (Button) findViewById(R.id.bouton4);
-
-    b4.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        httpCall("https://api.github.com/zen");
       }
     });
 
@@ -98,7 +90,7 @@ public class Activity2 extends AppCompatActivity {
       new Response.Listener<String>() {
         @Override
         public void onResponse(String response) {
-          textview.setText("Response is: "+ response.substring(0,500));
+          textview.setText(response);
           Log.e(this.getClass().toString(), "Request successful!");
         }
       }, new Response.ErrorListener() {
