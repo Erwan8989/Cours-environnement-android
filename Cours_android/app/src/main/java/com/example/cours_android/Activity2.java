@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -37,24 +39,35 @@ import java.util.ArrayList;
 public class Activity2 extends AppCompatActivity {
 
   Button b4, b5, b6, b7;
-  TextView text;
+  TextView textview;
   EditText input;
 
   private static final String FILE_NAME = "hello_file.txt";
 
+  // Instantiate the RequestQueue.
+  //RequestQueue queue = Volley.newRequestQueue(this);
+  String url ="https://api.github.com/zen";
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_2);
 
-
     b5 = (Button) findViewById(R.id.bouton5);
     input = findViewById(R.id.text);
     b6 = findViewById(R.id.bouton6);
-    text = (TextView) findViewById(R.id.textview);
-    text.setVisibility(View.GONE);
+    textview = (TextView)findViewById(R.id.text);
 
+    // ***************** Obtenir l'API, et l'afficher *****************
+
+    b4 = (Button) findViewById(R.id.bouton4);
+
+    b4.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        httpCall("https://api.github.com/zen");
+      }
+    });
 
     // ***************** Revenir à l'activity main *****************
 
@@ -87,14 +100,29 @@ public class Activity2 extends AppCompatActivity {
 
   }
 
+  public void httpCall(String url) {
 
+    RequestQueue queue = Volley.newRequestQueue(this);
 
-  // ***************** Appel depuis API *****************
+    StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+      new Response.Listener<String>() {
+        @Override
+        public void onResponse(String response) {
+          textview.setText(response);
+          Log.e(this.getClass().toString(), "Request successful!");
+        }
+      }, new Response.ErrorListener() {
+      @Override
+      public void onErrorResponse(VolleyError error) {
+        textview.setText("That didn't work!");
+        Log.e(this.getClass().toString(), "Erreur!");
+      }
+    });
 
-    public void api() {
-      Intent intent = new Intent(this, MainActivity.class);
-      startActivity(intent);
-    }
+    queue.add(stringRequest);
+
+  }
+
   // ***************** Changement de page au clic *****************
 
   public void openActivity1() {
