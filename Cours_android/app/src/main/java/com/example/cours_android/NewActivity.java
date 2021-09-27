@@ -24,18 +24,24 @@ public class NewActivity extends AppCompatActivity {
 
     Button b4, b5, b6, b7;
 
-
     // Définition du nom de fichier du texte
 
     private static final String FILE_NAME ="example.txt";
     EditText TextEdit;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new);
+
+        b7 = (Button) findViewById(R.id.bouton7);
+
+        b7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMainActivity();
+            }
+        });
 
         TextEdit = findViewById(R.id.TextEdit); }
 
@@ -100,19 +106,15 @@ public class NewActivity extends AppCompatActivity {
 
 
         // ***************** Revenir à l'activity main *****************
-/*      @Override
-            public void onClick(View v) {
-    b7 = (Button) findViewById(R.id.bouton7);
 
-    b7.setOnClickListener(new View.OnClickListener()
-
-    {
 
         // ***************** Changement de page au clic *****************
 
-        public void openActivity1 () {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent); */
+            public void openMainActivity() {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
+
     }
 
 
