@@ -2,12 +2,10 @@ package com.example.cours_android;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -16,13 +14,11 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-
 
 
 public class NewActivity extends AppCompatActivity {
 
-    Button b4, b5, b6, b7;
+    Button b4, b5, b6, b7 = (Button) findViewById(R.id.bouton7);
 
 
     // Définition du nom de fichier du texte
@@ -100,19 +96,29 @@ public class NewActivity extends AppCompatActivity {
 
 
         // ***************** Revenir à l'activity main *****************
-/*      @Override
+
             public void onClick(View v) {
-    b7 = (Button) findViewById(R.id.bouton7);
 
-    b7.setOnClickListener(new View.OnClickListener()
+        b7.setOnClickListener(new View.OnClickListener() {
+                                  @Override
+                                  public void onClick(View view) {
+                                      Intent intent;
+                                      intent = new Intent();
+                                      startActivity(intent);
+                                  }
+                              }
+            }
+}
 
-    {
 
-        // ***************** Changement de page au clic *****************
+       // ***************** Changement de page au clic *****************
+/*
+        public void openActivity1() {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent); */
 
-        public void openActivity1 () {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent); */
-    }
+
+
+
 
 
