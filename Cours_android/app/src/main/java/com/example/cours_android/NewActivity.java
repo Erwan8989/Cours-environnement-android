@@ -1,11 +1,15 @@
 package com.example.cours_android;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -18,14 +22,14 @@ import java.io.InputStreamReader;
 
 public class NewActivity extends AppCompatActivity {
 
-    Button b4, b5, b6, b7 = (Button) findViewById(R.id.bouton7);
-
+    Button b4, b5, b7;
 
     // Définition du nom de fichier du texte
 
     private static final String FILE_NAME ="example.txt";
     EditText TextEdit;
 
+    @SuppressLint({"WrongViewCast", "CutPasteId"})
 
 
     @Override
@@ -33,8 +37,37 @@ public class NewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new);
 
-        TextEdit = findViewById(R.id.TextEdit); }
+        // ***************** Revenir à l'activity main *****************
 
+        b7 = findViewById(R.id.bouton7);
+        b7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMainActivity();
+            }
+        });
+
+        // Input du text //
+        TextEdit = findViewById(R.id.TextEdit);
+
+        // Set background color of the text field in Green
+
+           // final RelativeLayout relativeLayout;
+
+            // set button 1 with its id
+            b5 = findViewById(R.id.bouton5);
+            // set relative layout with its id
+        View relativeLayout = findViewById(R.id.TextEdit);
+            // onClick function for button 1
+            b5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // set the color to relative layout
+                    relativeLayout.setBackgroundResource(R.color.cool);
+                }
+            });
+         }
+         
         // Définition des méthodes Saves & Load
 
     public void Save(View v) {
@@ -95,30 +128,17 @@ public class NewActivity extends AppCompatActivity {
     }
 
 
-        // ***************** Revenir à l'activity main *****************
-
-            public void onClick(View v) {
-
-        b7.setOnClickListener(new View.OnClickListener() {
-                                  @Override
-                                  public void onClick(View view) {
-                                      Intent intent;
-                                      intent = new Intent();
-                                      startActivity(intent);
-                                  }
-                              }
-            }
-}
 
 
-       // ***************** Changement de page au clic *****************
-/*
-        public void openActivity1() {
+
+
+
+
+            public void openMainActivity() {
             Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent); */
+            startActivity(intent);
+        }
 
-
-
-
+    }
 
 

@@ -15,7 +15,7 @@ import android.widget.ImageView;
 public class MainActivity extends AppCompatActivity {
     Button b1, b2, b3;
     ImageView iv;
-    int[] images ={R.drawable.loup,R.drawable.nike,R.drawable.dragon,R.drawable.cat,};
+    int[] images ={R.drawable.loup,R.drawable.nike,R.drawable.dragon,R.drawable.cat};
     int i=0;
 
     MediaPlayer mp;
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 //Changement de l'image
                 iv.setImageResource(images[i]);
                 i++;
-                if(i==2)
+                if(i==4)
                     i=0;
             }
         });
