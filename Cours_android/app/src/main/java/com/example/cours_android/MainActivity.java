@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
   int[] images ={R.drawable.img,R.drawable.img2};
   int i=0;
   MediaPlayer mp;
+  int a = 5;
 
 
   @Override
@@ -90,24 +91,25 @@ public class MainActivity extends AppCompatActivity {
     });
 
 
+    // ***************** Ajouter un thread *****************
+
     b8.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
         Thread background = new Thread(new Runnable() {
-          public void run(){
-            Log.d("Thread test.", "Ceci est une erreur !");
+          public void run() {
+              Log.d("Thread test.", "Ceci est une erreur !");
 
-            try {
+              try {
 
-              Thread.sleep(3000);
-            } catch (InterruptedException e) {
-              e.printStackTrace();
+                Thread.sleep(3000);
+              } catch (InterruptedException e) {
+                e.printStackTrace();
+              }
             }
-          }
         });
         new Thread(background).start();
       }
-
     });
 
 
