@@ -22,6 +22,7 @@ import java.lang.Thread;
 public class NewActivity extends AppCompatActivity {
 
     Button b4, b5, b7, b8;
+    int a = 3;
 
     // Définition du nom de fichier du texte
 
@@ -55,7 +56,7 @@ public class NewActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Thread background = new Thread(new Runnable() {
                     public void run(){
-                    while (int a = 1){
+
                             Log.d("Thread test.", "Ceci est une erreur !");
 
                             try {
@@ -64,7 +65,7 @@ public class NewActivity extends AppCompatActivity {
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
-                        }
+                        
                     }
                 });
                 new Thread(background).start();
