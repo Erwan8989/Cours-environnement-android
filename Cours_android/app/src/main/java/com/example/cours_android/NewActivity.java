@@ -57,7 +57,6 @@ public class NewActivity extends AppCompatActivity {
                 Thread background = new Thread(new Runnable() {
 
                     public void run(){
-
                             Log.d("Thread test.", "Ceci est une erreur !");
 
                             try {
@@ -93,7 +92,7 @@ public class NewActivity extends AppCompatActivity {
                 }
             });
          }
-         
+
         // Définition des méthodes Saves & Load
 
     public void Save(View v) {
