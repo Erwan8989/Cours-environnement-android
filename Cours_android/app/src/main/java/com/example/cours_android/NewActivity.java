@@ -3,13 +3,11 @@ package com.example.cours_android;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -18,11 +16,12 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.Thread;
 
 
 public class NewActivity extends AppCompatActivity {
 
-    Button b4, b5, b7;
+    Button b4, b5, b7, b8;
 
     // Définition du nom de fichier du texte
 
@@ -45,7 +44,34 @@ public class NewActivity extends AppCompatActivity {
             public void onClick(View v) {
                 openMainActivity();
             }
+
+            private void openMainActivity() {
+            }
         });
+
+        b8 = findViewById(R.id.bouton8);
+        b8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Thread background = new Thread(new Runnable() {
+                    public void run(){
+                    while (int a = 1){
+                            Log.d("Thread test.", "Ceci est une erreur !");
+
+                            try {
+
+                                Thread.sleep(3000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                });
+                new Thread(background).start();
+            }
+
+        });
+
 
         // Input du text //
         TextEdit = findViewById(R.id.TextEdit);
@@ -126,19 +152,9 @@ public class NewActivity extends AppCompatActivity {
             }
         }
     }
-
-
-
-
-
-
-
-
-            public void openMainActivity() {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-        }
-
     }
+
+
+
 
 
