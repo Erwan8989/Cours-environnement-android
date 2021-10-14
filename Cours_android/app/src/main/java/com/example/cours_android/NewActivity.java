@@ -55,7 +55,6 @@ public class NewActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Thread background = new Thread(new Runnable() {
                     public void run(){
-                    while (int a = 1){
                             Log.d("Thread test.", "Ceci est une erreur !");
 
                             try {
@@ -64,7 +63,7 @@ public class NewActivity extends AppCompatActivity {
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
-                        }
+
                     }
                 });
                 new Thread(background).start();
@@ -93,7 +92,7 @@ public class NewActivity extends AppCompatActivity {
                 }
             });
          }
-         
+
         // Définition des méthodes Saves & Load
 
     public void Save(View v) {
