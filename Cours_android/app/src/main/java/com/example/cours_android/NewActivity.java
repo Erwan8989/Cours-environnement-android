@@ -21,7 +21,7 @@ import java.lang.Thread;
 
 public class NewActivity extends AppCompatActivity {
 
-    Button b4, b5, b7, b8;
+    Button b5, b7, b8;
 
 
     // Définition du nom de fichier du texte
